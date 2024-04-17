@@ -5,6 +5,7 @@ public class Oferta {
 	private String precio;
 	private String urlAnuncio;
 	private String tipo;
+	private String urlFotoVehiculo;
 	public String getVehiculo() {
 		return vehiculo;
 	}
@@ -28,6 +29,12 @@ public class Oferta {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public String getUrlFotoVehiculo() {
+		return urlFotoVehiculo;
+	}
+	public void setUrlFotoVehiculo(String urlFotoVehiculo) {
+		this.urlFotoVehiculo = urlFotoVehiculo;
 	}
 
 }
