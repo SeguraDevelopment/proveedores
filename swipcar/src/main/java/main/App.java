@@ -1,9 +1,13 @@
 package main;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import model.ConfigApp;
+import model.Oferta;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,11 +30,16 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		configApp = (ConfigApp) context.getBean("configApp");
 		logger.info("Proveedor: " + configApp.getProveedor());
-	    logger.info("URL Proveedor: " + configApp.getUrlProveedor());
+	    
 	    
 	    Navigate nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox()
 	    		, configApp.getProveedor());
-	    nav.start(configApp.getUrlProveedor());
+	    
+	    for(String key : configApp.getFlota().keySet()) {
+	    	List<Oferta> ofertas = nav.start(configApp.getFlota().get(key), key);
+	    	
+	    	// registrar ofertas en la BD
+	    }
 	    
 	    
 	}

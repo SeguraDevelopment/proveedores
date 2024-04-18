@@ -3,7 +3,7 @@ package model;
 public class Oferta {
 	@Override
 	public String toString() {
-		return "Oferta [Proveedor=" + proveedor +  ", vehiculo=" + vehiculo + ", precio=" + precio + ", urlAnuncio=" + urlAnuncio + ", tipo=" + tipo
+		return "Oferta [Proveedor=" + proveedor + ", flota=" + flota + ", vehiculo=" + vehiculo + ", precio=" + precio + ", urlAnuncio=" + urlAnuncio + ", tipo=" + tipo
 				+ ", urlFotoVehiculo=" + urlFotoVehiculo + "]";
 	}
 	private String vehiculo;
@@ -12,6 +12,13 @@ public class Oferta {
 	private String tipo;
 	private String urlFotoVehiculo;
 	private String proveedor;
+	private String flota;
+	public String getFlota() {
+		return flota;
+	}
+	public void setFlota(String flota) {
+		this.flota = flota;
+	}
 	public String getVehiculo() {
 		return vehiculo;
 	}
