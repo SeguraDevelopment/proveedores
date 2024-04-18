@@ -26,8 +26,15 @@ public class SwipcarNav extends Navigate {
 		//((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Actions action = new Actions(driver);
 		// Cargamos toda la pagina presionando el SPACE
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < 50; i++) {
 			action.sendKeys(Keys.SPACE).build().perform();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		List<WebElement> items = driver.findElements(By.className("CarItem__Item-sc-12tr62h-1"));
 		for (WebElement webElement : items) {
 			
@@ -53,6 +60,7 @@ public class SwipcarNav extends Navigate {
 		    oferta.setVehiculo(vehiculo);
 		    oferta.setUrlFotoVehiculo(urlFoto);
 		    oferta.setProveedor(proveedor);
+		    oferta.setFlota(flota);
 		    
 			logger.info(oferta);
 			

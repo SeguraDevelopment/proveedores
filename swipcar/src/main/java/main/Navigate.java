@@ -16,6 +16,7 @@ public abstract class Navigate {
 	private String pathDriver;
 	private String pathFirefox;
 	protected String proveedor;
+	protected String flota;
 	public Navigate(String pathGeckoDriver, String pathFirefox, String proveedor) {
 		logger.info("GeckDriver->"+pathGeckoDriver);
 		logger.info("Firefox->"+pathFirefox);
@@ -27,11 +28,11 @@ public abstract class Navigate {
 	
 	protected abstract List<Oferta> getOfertas(WebDriver driver);
 	
-	public List<Oferta> start(String url) {
-		logger.info("Navegacion->"+url);
+	public List<Oferta> start(String url, String flotaName) {
+		logger.info("Navegacion->"+url+" Flota->" + flotaName);
 		FirefoxOptions options = new FirefoxOptions();
 		options.setBinary(pathFirefox);
-		
+		flota = flotaName;
 		WebDriver driver = new FirefoxDriver(options);
 		
 		
