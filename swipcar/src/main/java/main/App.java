@@ -28,7 +28,7 @@ public class App {
 		logger.info("Proveedor: " + configApp.getProveedor());
 	    logger.info("URL Proveedor: " + configApp.getUrlProveedor());
 	    
-	    Navigate nav = new Navigate(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
+	    Navigate nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
 	    nav.start(configApp.getUrlProveedor());
 	    
 	    
