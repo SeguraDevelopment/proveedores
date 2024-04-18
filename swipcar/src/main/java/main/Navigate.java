@@ -15,12 +15,14 @@ public abstract class Navigate {
 	protected static final Logger logger = LogManager.getLogger();
 	private String pathDriver;
 	private String pathFirefox;
-	public Navigate(String pathGeckoDriver, String pathFirefox) {
+	protected String proveedor;
+	public Navigate(String pathGeckoDriver, String pathFirefox, String proveedor) {
 		logger.info("GeckDriver->"+pathGeckoDriver);
 		logger.info("Firefox->"+pathFirefox);
 		pathDriver= pathGeckoDriver;
 		this.pathFirefox=pathFirefox;
 		System.setProperty("webdriver.gecko.driver",pathDriver);
+		this.proveedor = proveedor;
 	}
 	
 	protected abstract List<Oferta> getOfertas(WebDriver driver);
