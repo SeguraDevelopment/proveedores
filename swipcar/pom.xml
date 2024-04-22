@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>proveedores.renting</groupId>
   <artifactId>swipcar</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>ProveedorSwipcarRenting</name>
   <description>bot captacion de datos swipcar</description>
   <properties>
