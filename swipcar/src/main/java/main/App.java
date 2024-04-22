@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import model.ConfigApp;
 
 import model.Oferta;
+import model.Proveedor;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -43,15 +44,18 @@ public class App {
 		logger.info("Proveedor: " + configApp.getProveedor());
 	    
 	    
-	    Navigate nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox()
-	    		, configApp.getProveedor());
+	    Navigate nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
 	    
 	    for(String key : configApp.getFlota().keySet()) {
-	    	List<Oferta> ofertas = nav.start(configApp.getFlota().get(key), key);
+	    	Proveedor proveedor = new Proveedor();
+	    	proveedor.setFlota(key);
+	    	proveedor.setUrlFlota(configApp.getFlota().get(key));
+	    	proveedor.setProveedor(configApp.getProveedor());
+	    	List<Oferta> ofertas = nav.start(proveedor);
 	    	
 	    	// registrar ofertas en la BD
 	    	OfertaDao db = new OfertaDao(dataSource);
-	    	db.updateDb(ofertas);
+	    	db.updateDb(proveedor, ofertas);
 	    }
 	    
 	    
