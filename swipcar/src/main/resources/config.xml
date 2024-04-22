@@ -3,22 +3,37 @@
 <beans xmlns = "http://www.springframework.org/schema/beans"
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/util
+   http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
    <bean id = "configApp" class = "model.ConfigApp">
-      <property name = "proveedor" value = "swipcar"/>
+      
       <property name = "pathDriverFirefox" value = "C:\\apps\\selenium\\geckodriver.exe"/>
       <property name = "pathFirefox" value = "C:\\Program Files\\Mozilla Firefox\\firefox.exe"/>
+ 
       
-      <property name="flota">
-          <map>
-              <entry key="turismos" value="https://swipcar.com/es/renting"/>
-              <entry key="comerciales" value="https://swipcar.com/es/renting-furgonetas"/>
-          </map>
-      </property>
-      
+       <property name="proveedores">
+        <list value-type="model.Proveedor">
+            <ref bean="swipcarTurismos"/>
+            <ref bean="swipcarComerciales"/>
+        </list>
+    </property>
       
    </bean>
+   
+   <bean id="swipcarTurismos" class="model.Proveedor">
+    <property name = "proveedor" value = "swipcar"/>
+    <property name = "flota" value = "turismos"/>
+    <property name = "urlFlota" value = "https://swipcar.com/es/renting"/>
+   </bean>
+   
+   <bean id="swipcarComerciales" class="model.Proveedor">
+    <property name = "proveedor" value = "swipcar"/>
+    <property name = "flota" value = "comerciales"/>
+    <property name = "urlFlota" value = "https://swipcar.com/es/renting-furgonetas"/>
+   </bean>
+  
    
 	
 	<!-- Database DataSource -->
