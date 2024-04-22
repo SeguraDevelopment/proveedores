@@ -11,16 +11,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import model.Oferta;
+import model.Proveedor;
 
 public class SwipcarNav extends Navigate {
 
-	public SwipcarNav(String pathGeckoDriver, String pathFirefox, String proveedor) {
-		super(pathGeckoDriver, pathFirefox, proveedor);
+	public SwipcarNav(String pathGeckoDriver, String pathFirefox) {
+		super(pathGeckoDriver, pathFirefox);
 		
 	}
 
 	@Override
-	protected List<Oferta> getOfertas(WebDriver driver) {
+	protected List<Oferta> getOfertas(Proveedor proveedor, WebDriver driver) {
 		// Cargar toda la pagina
 		ArrayList<Oferta> ofertas = new ArrayList<Oferta>();
 		//((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -54,13 +55,13 @@ public class SwipcarNav extends Navigate {
 		    	urlFoto = alt.isEmpty() ? "": img.getAttribute("src");
 		    }
 		    		
-		    oferta.setPrecio(price);
+		    oferta.setPrecio(Float.parseFloat(price.replaceAll("\\D+","")));
 		    oferta.setTipo(tipo);
 		    oferta.setUrlAnuncio(url);
 		    oferta.setVehiculo(vehiculo);
 		    oferta.setUrlFotoVehiculo(urlFoto);
 		    oferta.setProveedor(proveedor);
-		    oferta.setFlota(flota);
+		 
 		    
 			logger.info(oferta);
 			

@@ -6,7 +6,6 @@
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
    <bean id = "configApp" class = "model.ConfigApp">
-     <!-- <property name = "urlProveedor" value = "https://swipcar.com/es/renting"/> -->
       <property name = "proveedor" value = "swipcar"/>
       <property name = "pathDriverFirefox" value = "C:\\apps\\selenium\\geckodriver.exe"/>
       <property name = "pathFirefox" value = "C:\\Program Files\\Mozilla Firefox\\firefox.exe"/>
@@ -20,5 +19,15 @@
       
       
    </bean>
+   
+	
+	<!-- Database DataSource -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+	    <property name="url" value="jdbc:sqlserver://palco.sytes.net:11433;encrypt=false;databaseName=RentingCar" />
+	    <property name="username" value="javier"/>
+	   	<property name="password" value="opqa12"/>
+	</bean>
+
 
 </beans>

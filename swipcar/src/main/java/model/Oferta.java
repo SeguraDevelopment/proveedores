@@ -3,21 +3,24 @@ package model;
 public class Oferta {
 	@Override
 	public String toString() {
-		return "Oferta [Proveedor=" + proveedor + ", flota=" + flota + ", vehiculo=" + vehiculo + ", precio=" + precio + ", urlAnuncio=" + urlAnuncio + ", tipo=" + tipo
+		return "Oferta [Proveedor=" + proveedor + ", vehiculo=" + vehiculo + ", precio=" + precio + ", urlAnuncio=" + urlAnuncio + ", tipo=" + tipo
 				+ ", urlFotoVehiculo=" + urlFotoVehiculo + "]";
 	}
 	private String vehiculo;
-	private String precio;
+	private float precio;
 	private String urlAnuncio;
 	private String tipo;
 	private String urlFotoVehiculo;
-	private String proveedor;
-	private String flota;
-	public String getFlota() {
-		return flota;
+	private Proveedor proveedor;
+
+	
+	
+	
+	public Proveedor getProveedor() {
+		return proveedor;
 	}
-	public void setFlota(String flota) {
-		this.flota = flota;
+	public void setProveedor(Proveedor proveedor) {
+		this.proveedor = proveedor;
 	}
 	public String getVehiculo() {
 		return vehiculo;
@@ -25,10 +28,10 @@ public class Oferta {
 	public void setVehiculo(String vehiculo) {
 		this.vehiculo = vehiculo;
 	}
-	public String getPrecio() {
+	public float getPrecio() {
 		return precio;
 	}
-	public void setPrecio(String precio) {
+	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
 	public String getUrlAnuncio() {
@@ -49,11 +52,6 @@ public class Oferta {
 	public void setUrlFotoVehiculo(String urlFotoVehiculo) {
 		this.urlFotoVehiculo = urlFotoVehiculo;
 	}
-	public String getProveedor() {
-		return proveedor;
-	}
-	public void setProveedor(String proveedor) {
-		this.proveedor = proveedor;
-	}
+	
 
 }
