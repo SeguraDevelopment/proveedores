@@ -15,11 +15,28 @@
       
        <property name="proveedores">
         <list value-type="model.Proveedor">
-            <ref bean="swipcarTurismos"/>
+           <!--  
+           	<ref bean="swipcarTurismos"/>
             <ref bean="swipcarComerciales"/>
+          
+            <ref bean="cochesComComerciales"/>
+             -->
+            <ref bean="cochesComTurismos"/>
         </list>
     </property>
       
+   </bean>
+   
+   <bean id="cochesComComerciales" class="model.Proveedor">
+    <property name = "proveedor" value = "cochesCom"/>
+    <property name = "flota" value = "comerciales"/>
+    <property name = "urlFlota" value = "https://www.coches.com/renting-coches/renting-furgonetas.htm"/>
+   </bean>
+   
+   <bean id="cochesComTurismos" class="model.Proveedor">
+    <property name = "proveedor" value = "cochesCom"/>
+    <property name = "flota" value = "comerciales"/>
+    <property name = "urlFlota" value = "https://www.coches.com/renting-coches/ofertas-renting/?tipo=pequenos&#38;tipo=mediano&#38;tipo=grande&#38;tipo=familiar&#38;tipo=monovolumen&#38;tipo=todoterreno&#38;tipo=deportivo"/>
    </bean>
    
    <bean id="swipcarTurismos" class="model.Proveedor">
