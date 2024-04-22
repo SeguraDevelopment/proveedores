@@ -50,6 +50,8 @@ public class App {
 	    	logger.info("Proveedor: " + p);
 	    	if(p.getProveedor().compareToIgnoreCase("swipcar")==0)
 	    		nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
+	    	else if(p.getProveedor().compareToIgnoreCase("cochesCom")==0)
+	    		nav = new CochesComNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
 	    	else
 	    		continue;
 	    	
