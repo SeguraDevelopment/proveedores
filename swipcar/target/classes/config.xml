@@ -12,7 +12,7 @@
       
       <property name="flota">
           <map>
-            <!--   <entry key="turismos" value="https://swipcar.com/es/renting"/> -->
+              <entry key="turismos" value="https://swipcar.com/es/renting"/>
               <entry key="comerciales" value="https://swipcar.com/es/renting-furgonetas"/>
           </map>
       </property>
