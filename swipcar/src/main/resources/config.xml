@@ -15,12 +15,9 @@
       
        <property name="proveedores">
         <list value-type="model.Proveedor">
-           <!--  
            	<ref bean="swipcarTurismos"/>
             <ref bean="swipcarComerciales"/>
-          
             <ref bean="cochesComComerciales"/>
-             -->
             <ref bean="cochesComTurismos"/>
         </list>
     </property>
