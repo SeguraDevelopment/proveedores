@@ -32,7 +32,7 @@
    
    <bean id="cochesComTurismos" class="model.Proveedor">
     <property name = "proveedor" value = "cochesCom"/>
-    <property name = "flota" value = "comerciales"/>
+    <property name = "flota" value = "turismos"/>
     <property name = "urlFlota" value = "https://www.coches.com/renting-coches/ofertas-renting/?tipo=pequenos&#38;tipo=mediano&#38;tipo=grande&#38;tipo=familiar&#38;tipo=monovolumen&#38;tipo=todoterreno&#38;tipo=deportivo"/>
    </bean>
    
