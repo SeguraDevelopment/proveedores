@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 public class ConfigApp {
 	//private String urlProveedor;
+
 	
 	private String pathDriverFirefox;
 	private String pathFirefox;
@@ -16,6 +18,7 @@ public class ConfigApp {
 	private List<Proveedor> proveedores;
 
 	
+
 	  
 	public String getPathDriverFirefox() {
 		return pathDriverFirefox;
@@ -24,6 +27,7 @@ public class ConfigApp {
 	public void setPathDriverFirefox(String pathDriverFirefox) {
 		this.pathDriverFirefox = pathDriverFirefox;
 	}
+
 
 	
 
@@ -41,6 +45,7 @@ public class ConfigApp {
 
 	public void setProveedores(List<Proveedor> proveedores) {
 		this.proveedores = proveedores;
+
 	}
 	
 

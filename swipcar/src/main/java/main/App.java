@@ -41,7 +41,7 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		configApp = (ConfigApp) context.getBean("configApp");
 		DataSource dataSource = (DataSource) context.getBean("dataSource");
-		
+	
 	    
 	    
 	    Navigate nav = null;
@@ -60,6 +60,7 @@ public class App {
 	    	// registrar ofertas en la BD
 	    	OfertaDao db = new OfertaDao(dataSource);
 	    	db.updateDb(p, ofertas);
+
 	    }
 	    
 	    
