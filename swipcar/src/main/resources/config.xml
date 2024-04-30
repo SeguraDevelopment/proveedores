@@ -3,23 +3,54 @@
 <beans xmlns = "http://www.springframework.org/schema/beans"
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/util
+   http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
    <bean id = "configApp" class = "model.ConfigApp">
-      <property name = "proveedor" value = "swipcar"/>
+      
       <property name = "pathDriverFirefox" value = "C:\\apps\\selenium\\geckodriver.exe"/>
       <property name = "pathFirefox" value = "C:\\Program Files\\Mozilla Firefox\\firefox.exe"/>
+ 
       
-      <property name="flota">
-          <map>
-              <entry key="turismos" value="https://swipcar.com/es/renting"/>
-              <entry key="comerciales" value="https://swipcar.com/es/renting-furgonetas"/>
-          </map>
-      </property>
-      
+       <property name="proveedores">
+        <list value-type="model.Proveedor">
+           	<ref bean="swipcarTurismos"/>
+            <ref bean="swipcarComerciales"/>
+            <ref bean="cochesComComerciales"/>
+            <ref bean="cochesComTurismos"/>
+        </list>
+    </property>
       
    </bean>
    
+   <bean id="cochesComComerciales" class="model.Proveedor">
+    <property name = "proveedor" value = "cochesCom"/>
+    <property name = "flota" value = "comerciales"/>
+    <property name = "urlFlota" value = "https://www.coches.com/renting-coches/renting-furgonetas.htm"/>
+   </bean>
+   
+   <bean id="cochesComTurismos" class="model.Proveedor">
+    <property name = "proveedor" value = "cochesCom"/>
+    <property name = "flota" value = "turismos"/>
+    <property name = "urlFlota" value = "https://www.coches.com/renting-coches/ofertas-renting/?tipo=pequenos&#38;tipo=mediano&#38;tipo=grande&#38;tipo=familiar&#38;tipo=monovolumen&#38;tipo=todoterreno&#38;tipo=deportivo"/>
+   </bean>
+   
+   <bean id="swipcarTurismos" class="model.Proveedor">
+    <property name = "proveedor" value = "swipcar"/>
+    <property name = "flota" value = "turismos"/>
+    <property name = "urlFlota" value = "https://swipcar.com/es/renting"/>
+   </bean>
+   
+   <bean id="swipcarComerciales" class="model.Proveedor">
+    <property name = "proveedor" value = "swipcar"/>
+    <property name = "flota" value = "comerciales"/>
+    <property name = "urlFlota" value = "https://swipcar.com/es/renting-furgonetas"/>
+   </bean>
+  
+   
+
 	
 	<!-- Database DataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

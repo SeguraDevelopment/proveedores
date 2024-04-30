@@ -41,21 +41,26 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		configApp = (ConfigApp) context.getBean("configApp");
 		DataSource dataSource = (DataSource) context.getBean("dataSource");
-		logger.info("Proveedor: " + configApp.getProveedor());
+	
 	    
 	    
-	    Navigate nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
+	    Navigate nav = null;
 	    
-	    for(String key : configApp.getFlota().keySet()) {
-	    	Proveedor proveedor = new Proveedor();
-	    	proveedor.setFlota(key);
-	    	proveedor.setUrlFlota(configApp.getFlota().get(key));
-	    	proveedor.setProveedor(configApp.getProveedor());
-	    	List<Oferta> ofertas = nav.start(proveedor);
+	    for(Proveedor p : configApp.getProveedores()) {
+	    	logger.info("Proveedor: " + p);
+	    	if(p.getProveedor().compareToIgnoreCase("swipcar")==0)
+	    		nav = new SwipcarNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
+	    	else if(p.getProveedor().compareToIgnoreCase("cochesCom")==0)
+	    		nav = new CochesComNav(configApp.getPathDriverFirefox(), configApp.getPathFirefox());
+	    	else
+	    		continue;
+	    	
+	    	List<Oferta> ofertas = nav.start(p);
 	    	
 	    	// registrar ofertas en la BD
 	    	OfertaDao db = new OfertaDao(dataSource);
-	    	db.updateDb(proveedor, ofertas);
+	    	db.updateDb(p, ofertas);
+
 	    }
 	    
 	    
