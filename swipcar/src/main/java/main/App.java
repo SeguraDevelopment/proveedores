@@ -37,6 +37,7 @@ public class App {
 	
 	public void start() {
 		logger.info("");
+		String varSinUsar;
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		configApp = (ConfigApp) context.getBean("configApp");
