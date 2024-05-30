@@ -38,7 +38,7 @@ public class App {
 	public void start() {
 		logger.info("");
 		String varSinUsar;
-		String tokenMentira="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":
+		String tokenMentira="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";
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		configApp = (ConfigApp) context.getBean("configApp");
