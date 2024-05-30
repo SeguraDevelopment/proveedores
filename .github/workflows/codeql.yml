@@ -70,7 +70,7 @@ jobs:
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         queries: +security-extended,security-and-quality
-        packs: +codeql/java-all, codeql/java-automodel-queries
+        packs: +codeql/java-all # paquetes adicionales de consultas
           
         
 
