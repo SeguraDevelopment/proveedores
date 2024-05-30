@@ -72,9 +72,10 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-        queries: +security-extended,security-and-quality, ./myqueries
+       # queries: +security-extended,security-and-quality, ./myqueries
+        queries: ./myqueries
         
-        packs: +codeql/java-all # paquetes adicionales de consultas
+       # packs: +codeql/java-all # paquetes adicionales de consultas
           
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3  
