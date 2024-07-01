@@ -25,4 +25,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-app
-          path: target/swipcar*.jar
+          path: swipcar/target/swipcar*.jar
+      - name: Publish to GitHub Packages Maven
+        uses: actions/maven-publish@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          package_name: com.proveedores.swipcar
+          package_version: 1.0.0
+          repository_url: https://maven.pkg.github.com/${GITHUB_REPO}/
+          artifact_id: swipcar
+          artifact_file: swipcar/target/swipcar*.jar
