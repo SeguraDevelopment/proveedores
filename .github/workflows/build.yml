@@ -28,7 +28,7 @@ jobs:
           path: swipcar/target/swipcar*.jar
       - name: Publish to GitHub Packages Maven
         run: |
-          mvn deploy -f swipcar/pom.xml 
+          mvn deploy -f swipcar/pom.xml --batch-mode -DuseGitHubPackages=true
         env:
           GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
          
