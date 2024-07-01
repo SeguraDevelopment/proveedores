@@ -30,7 +30,7 @@ jobs:
         run: |
           mvn --batch-mode -DuseGitHubPackages=true deploy -f swipcar/pom.xml
         env:
-          GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN:  ${{ secrets.MYTOKEN }}
          
 
 
