@@ -19,7 +19,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Maven
-        run: mvn clean package
+        run: mvn clean package -f swipcar/pom.xml
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
