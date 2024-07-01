@@ -72,7 +72,7 @@
         <repository>
           <id>github</id>
           <name>GitHub Packages</name>
-          <url>https://maven.pkg.github.com/SeguraDevelopment/proveedores</url>
+          <url>https://maven.pkg.github.com/SeguraDevelopment/</url>
         </repository>
       </distributionManagement>
     </profile>
