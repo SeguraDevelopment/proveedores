@@ -28,8 +28,12 @@ jobs:
           path: swipcar/target/swipcar*.jar
       - name: Publish to GitHub Packages Maven
         run: |
-          mvn deploy -f swipcar/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${GITHUB_REPO}/ -Dgithub.token=${GITHUB_TOKEN}
+          mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${GITHUB_REPO}/ -Dusername=${MAVEN_USERNAME} -Dpassword=${MAVEN_PASSWORD}        
         env:
           GITHUB_REPO: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAVEN_USERNAME: ${{ github.actor }}
+          MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+
 
