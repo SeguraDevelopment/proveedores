@@ -28,7 +28,7 @@ jobs:
           path: swipcar/target/swipcar*.jar
       - name: Publish to GitHub Packages Maven
         run: |
-          mvn --batch-mode -DuseGitHubPackages=true deploy -f swipcar/pom.xml
+          mvn --batch-mode -DuseGitHubPackages=true deploy -f swipcar/pom.xml -DaltDeploymentRepository=id::layout::https://maven.pkg.github.com/SeguraDevelopment/proveedores
         env:
           GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
          
