@@ -27,11 +27,9 @@ jobs:
           name: my-app
           path: swipcar/target/swipcar*.jar
       - name: Publish to GitHub Packages Maven
-        uses: actions/maven-publish@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          package_name: com.proveedores.swipcar
-          package_version: 1.0.0
-          repository_url: https://maven.pkg.github.com/${GITHUB_REPO}/
-          artifact_id: swipcar
-          artifact_file: swipcar/target/swipcar*.jar
+        run: |
+          mvn deploy -f swipcar/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${GITHUB_REPO}/ -Dgithub.token=${GITHUB_TOKEN}
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
